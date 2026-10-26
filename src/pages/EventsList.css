@@ -66,7 +66,8 @@
   width: 100%;
 }
 
-@media (min-width: 40rem) {
+/* Tablet: sidebar stays stacked so cards keep the full width */
+@media (min-width: 48rem) {
   .events-grid {
     flex-direction: row;
     flex-wrap: wrap;
@@ -79,9 +80,11 @@
   }
 }
 
+/* Desktop: sidebar beside the grid; the grid fills the remaining width */
 @media (min-width: 64rem) {
   .events-container {
     flex-direction: row;
+    align-items: flex-start;
     gap: 2.5rem;
   }
 
@@ -92,5 +95,6 @@
 
   .events-grid {
     flex: 1;
+    width: auto;
   }
 }
