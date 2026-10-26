@@ -28,12 +28,12 @@
 
 .events-container {
   display: flex;
-  gap: 2.5rem;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .sidebar {
-  width: 17.5rem;
-  flex-shrink: 0;
+  width: 100%;
 }
 
 .filter-section {
@@ -55,24 +55,42 @@
 }
 
 .events-grid {
-  flex: 1;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.875rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
   min-width: 0;
 }
 
-@media (max-width: 48rem) {
+.events-grid > * {
+  width: 100%;
+}
+
+@media (min-width: 40rem) {
+  .events-grid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1.875rem;
+  }
+
+  .events-grid > * {
+    flex: 0 1 calc(50% - 0.9375rem);
+    width: auto;
+  }
+}
+
+@media (min-width: 64rem) {
   .events-container {
-    flex-direction: column;
-    gap: 1.5rem;
+    flex-direction: row;
+    gap: 2.5rem;
   }
 
   .sidebar {
-    width: 100%;
+    width: 17.5rem;
+    flex-shrink: 0;
   }
 
   .events-grid {
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    flex: 1;
   }
 }
